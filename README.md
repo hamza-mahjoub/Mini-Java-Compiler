@@ -63,6 +63,12 @@ Where
 - Flex
 - Bison
 - C language
+## Project files
+- **LexicalAnalyzer.lex** handles the text parsing and tokens generation.
+- **SyntaxAnalyzer.y** handles syntax errors and invokes **C** functions that handles the semantic logic.
+- **symtab.h** contains semantic C functions declaration.
+- **symtab.c** contains semantic C functions implementation.
+
 ## Get started
 ### Generating app.exe
 Generate the **app.exe** by running the following python command in **cmd**
