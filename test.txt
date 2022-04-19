@@ -1,0 +1,41 @@
+/* ===========================================================
+  CECI EST UN COMMENTAIRE qui prendra fin a la prochaine
+  accolade fermante
+
+  TP1 - ift2030 - automne 2002
+  ============================================================ */
+
+class Factorial{
+    public static void main(String[] a){
+        System.out.println(new Fac().ComputeFac(10,10<5));
+    }
+}
+
+/* ====================================================
+   Classe Fac
+   ==================================================== */
+
+class Fac{
+    bool c1;
+    public int ComputeFac(int a){
+        int p;
+        int p1;
+        int p2;
+        if (a < 1)
+            p2 = 1 ;
+        else
+            p2 = p * (this.ComputeFac(p1-1)) ; 
+        return p2 ;
+    }
+
+    public int ComputeFac(int a,bool c){
+        int p;
+        int p1;
+        int p2;
+        if (a < 1)
+            p2 = 1 ;
+        else
+            p2 = p * (this.ComputeFac(5,6<5)) ; 
+        return p2 ;
+    }
+}
