@@ -56,8 +56,8 @@ Identifier	::=	<IDENTIFIER>
 ```
 Where
  - **identifier** follows the regex expression ```? /([A-Za-z_][A-Za-z0-9_]*)/ ? ```
- - **identifier** follows the regex expression ```? /(-?[1-9][0-9]*)/ ?  ```
- - **identifier** follows the regex expression ```= ? /(true|false)/ ?  ```
+ - **<INTEGER_LITERAL>** follows the regex expression ```? /(-?[1-9][0-9]*)/ ?  ```
+ - **<BOOLEAN_LITERAL>** follows the regex expression ```= ? /(true|false)/ ?  ```
 
 ## Technologies
 - Flex
