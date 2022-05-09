@@ -31,7 +31,7 @@ booleanLiteral                          "true"|"false"
 illegalIdentifier                       {numberN}({lettre}|{numberN})*                                                  
 
 dataType                                {primtiveType}|tableType                                                        
-primtiveType                            "int"|"boolean"|"String"|"byte"|"char"|"short"|"long"|"float"|"double"  
+primtiveType                            "int"|"bool"|"String"|"byte"|"char"|"short"|"long"|"float"|"double"  
 tableType                               ({primtiveType}{bl}{openSquareBrackets}{bl0}{closeSquareBrackets})
 
 %%   

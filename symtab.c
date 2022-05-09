@@ -5,9 +5,9 @@
 #include <string.h>
 #include "symtab.h"
 
-#define SYMBOL_TABLE_LENGTH 300
+// #define SYMBOL_TABLE_LENGTH 300
 
-NODE symbol_table[SYMBOL_TABLE_LENGTH];
+// NODE symbol_table[SYMBOL_TABLE_LENGTH];
 
 int first_empty = 0;
 extern int line;
@@ -128,7 +128,7 @@ void insert_call_param(int f_index, char *val, char *type)
 }
 // check if variable already declared in method(local) or class scope(global)
 
-void lookup_variable(char *name, char *type, int level, int class_id)
+int lookup_variable(char *name, char *type, int level, int class_id)
 {
     if (level == 0)
     {
@@ -169,16 +169,17 @@ void lookup_variable(char *name, char *type, int level, int class_id)
             }
         }
     }
-    insert_symbol(name, "DECLARATION", "VARIABLE", type, level, class_id);
+    int x =insert_symbol(name, "DECLARATION", "VARIABLE", type, level, class_id);
+    return x;
 }
 
 // check if class already exists
 
-void lookup_class(char *name, int class_id)
+int lookup_class(char *name, int class_id)
 {
     if (first_empty == 0)
     {
-        insert_symbol(name, "DECLARATION", "CLASS", "NOTYPE", 0, class_id);
+        return insert_symbol(name, "DECLARATION", "CLASS", "NOTYPE", 0, class_id);
     }
     else
     {
@@ -190,15 +191,15 @@ void lookup_class(char *name, int class_id)
                 exit(EXIT_FAILURE);
             }
         }
-        insert_symbol(name, "DECLARATION", "CLASS", "IDENT", 0, class_id);
+        return insert_symbol(name, "DECLARATION", "CLASS", "IDENT", 0, class_id);
     }
 }
 
 // check if method already declared in class scope
 
-void lookup_method(char *name, char *return_type, int class_id)
+int lookup_method(char *name, char *return_type, int class_id)
 {
-    insert_symbol(name, "DECLARATION", "METHOD", return_type, 0, class_id);
+    return insert_symbol(name, "DECLARATION", "METHOD", return_type, 0, class_id);
 }
 
 void lookup_override()
@@ -238,9 +239,8 @@ void lookup_override()
     }
 }
 
-void lookup_declarations(char *name, char *function, char *kind, int level, int class_id)
+int lookup_declarations(char *name, char *function, char *kind, int level, int class_id)
 {
-
     int i = first_empty - 1;
     int test = 0;
     for (i; i >= 0; i--)
@@ -255,7 +255,7 @@ void lookup_declarations(char *name, char *function, char *kind, int level, int 
                     {
                         NODE *method = &symbol_table[i];
                         method->params_init[j]++;
-                        insert_symbol(name, function, kind, "NOTYPE", level, class_id);
+                        return insert_symbol(name, function, kind, "NOTYPE", level, class_id);
                         test = 1;
                         break;
                     }
@@ -265,7 +265,7 @@ void lookup_declarations(char *name, char *function, char *kind, int level, int 
             {
                 NODE *variable = &symbol_table[i];
                 variable->initialized++;
-                insert_symbol(name, function, kind, "NOTYPE", level, class_id);
+                return insert_symbol(name, function, kind, "NOTYPE", level, class_id);
                 break;
             }
             if (test == 1)

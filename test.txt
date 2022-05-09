@@ -5,37 +5,37 @@
   TP1 - ift2030 - automne 2002
   ============================================================ */
 
-class Factorial{
+class Calculator{
     public static void main(String[] a){
-        System.out.println(new Fac().ComputeFac(10,10<5));
+        System.out.println(new Calculator1().calculate());
     }
 }
 
 /* ====================================================
-   Classe Fac
+   Classe Calculator1
    ==================================================== */
 
-class Fac{
-    bool c1;
-    public int ComputeFac(int a){
-        int p;
-        int p1;
-        int p2;
-        if (a < 1)
-            p2 = 1 ;
-        else
-            p2 = p * (this.ComputeFac(p1-1)) ; 
-        return p2 ;
-    }
+class Calculator1{
+    bool test;                          // @ 0
+    int somme;                          // @ 1
+    public int calculate (){
+        int x;                          // @ 2
+        int y;                          // @ 3
+        x = 5;                                   
+        y = 6;
+        somme = x * 10;
+        y = somme + 15;
+        somme = x / y;
 
-    public int ComputeFac(int a,bool c){
-        int p;
-        int p1;
-        int p2;
-        if (a < 1)
-            p2 = 1 ;
-        else
-            p2 = p * (this.ComputeFac(5,6<5)) ; 
-        return p2 ;
+        if (x < 1)
+            y = 1 ;
+        else {
+            x = x + 1 ;
+            while (x > somme)
+                y = y + 1;
+        }
+
+            
+        return x ;
     }
 }

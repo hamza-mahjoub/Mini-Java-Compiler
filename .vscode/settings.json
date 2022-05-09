@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "ctype.h": "c",
+        "symtab.h": "c",
+        "typeinfo": "c"
+    }
+}

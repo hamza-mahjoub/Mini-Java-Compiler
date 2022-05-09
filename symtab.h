@@ -24,6 +24,10 @@ typedef struct node {
    
 } NODE;
 
+#define SYMBOL_TABLE_LENGTH 300
+
+NODE symbol_table[SYMBOL_TABLE_LENGTH];
+
 // check main 
 
 void check_main(void);
@@ -42,13 +46,13 @@ int   get_last_element_index(void);
 
 // check 
 
-void  lookup_variable(char* name,char* type,int level, int class_id);
+int   lookup_variable(char* name,char* type,int level, int class_id);
 
-void  lookup_class(char* name,int class_id);
+int  lookup_class(char* name,int class_id);
 
-void  lookup_method(char* name,char* return_type,int class_id);
+int  lookup_method(char* name,char* return_type,int class_id);
 
-void  lookup_declarations(char *name,char* function, char* kind,int level, int class_id);
+int  lookup_declarations(char *name,char* function, char* kind,int level, int class_id);
 
 void            insert_call_param(int index,char* val,char* type);
 void            set_param(char* name, char* type);
