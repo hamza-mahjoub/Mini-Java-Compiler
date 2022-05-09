@@ -68,6 +68,8 @@ Where
 - **SyntaxAnalyzer.y** handles syntax errors and invokes **C** functions that handles the semantic logic.
 - **symtab.h** contains semantic C functions declaration.
 - **symtab.c** contains semantic C functions implementation.
+- **CodeGeneration.h** contains semantic C functions declaration.
+- **CodeGeneration.c** contains semantic C functions implementation.
 
 ## Get started
 ### Generating app.exe
